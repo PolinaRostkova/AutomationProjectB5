@@ -1,8 +1,6 @@
 package io.loop.test.day6;
 
-import io.loop.test.utilities.DocuportConstants;
-import io.loop.test.utilities.GeneralConstants;
-import io.loop.test.utilities.WebDriverUtil;
+import io.loop.test.utilities.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeMethod;
@@ -24,8 +22,8 @@ public class T4_testng_withSelenium {
 
     @Test
     public void googleTitle(){
-        driver.get("https://www.google.com");
-        System.out.println("((RemoteWebDriver) driver).getSessionId() = " + ((RemoteWebDriver) driver).getSessionId());
+        Driver.getDriver().get(ConfigurationReader.getProperty("google.url"));
+        System.out.println("((RemoteWebDriver) driver).getSessionId() = " + ((RemoteWebDriver) Driver.getDriver()).getSessionId());
         expected = "Google";
         actual = driver.getTitle();
         assertEquals(actual, expected, "Actual: " + actual + " Expected: " + expected);
@@ -33,8 +31,8 @@ public class T4_testng_withSelenium {
 
     @Test
     public void docuportTitle(){
-        driver.get(DocuportConstants.DOCUPORT_TEST);
-        System.out.println("((RemoteWebDriver) driver).getSessionId() = " + ((RemoteWebDriver) driver).getSessionId());
+        Driver.getDriver().get(ConfigurationReader.getProperty("docuportBETA"));
+        System.out.println("((RemoteWebDriver) driver).getSessionId() = " + ((RemoteWebDriver) Driver.getDriver()).getSessionId());
         expected = "Docuport";
         actual = driver.getTitle();
         assertEquals(actual, expected, "Actual: " + actual + " Expected: " + expected);
