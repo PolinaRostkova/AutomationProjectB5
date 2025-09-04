@@ -11,14 +11,15 @@ import java.time.Duration;
 public class Driver {
     // creating a private constructor we are closing access to the object of this class from outside the class
 
-    private  Driver() {
+    private Driver() {
 
     }
 
     // making our driver instance private, so it is not reachable outside the class
     // we make it static because we want it to run before everything else, and we will use it in static method
 
-    public static WebDriver driver;
+    private static WebDriver driver;
+
 
     // creating a reusable method that will run the same driver instance every time we call it
 

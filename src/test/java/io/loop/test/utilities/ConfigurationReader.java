@@ -15,10 +15,12 @@ public class ConfigurationReader {
             FileInputStream input = new FileInputStream(path);
             properties = new Properties();
             properties.load(input);
+            input.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
 
 
     public static String getProperty(String key) {
